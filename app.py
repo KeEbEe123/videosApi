@@ -6,18 +6,26 @@ import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 import cv2
+import gdown  # Added gdown import
 
 # Constants
 IMG_SIZE = 224
 MAX_SEQ_LENGTH = 20
 NUM_FEATURES = 2048
 MODEL_PATH = 'models/final_model6.h5'
+MODEL_URL = 'https://drive.google.com/uc?id=<YOUR_GOOGLE_DRIVE_FILE_ID>'  # Added model URL; replace with your file ID
 
 # Initialize Flask app
 app = Flask(__name__)
 
 # Enable CORS for all routes
 CORS(app)
+
+# Download model if it doesn't exist
+os.makedirs('models', exist_ok=True)  # Ensure models directory exists
+if not os.path.exists(MODEL_PATH):    # Check if model file is missing
+    print(f"Downloading model from {MODEL_URL} to {MODEL_PATH}")
+    gdown.download(MODEL_URL, MODEL_PATH, quiet=False)  # Download with gdown
 
 # Load model
 model = keras.models.load_model(MODEL_PATH)
