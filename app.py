@@ -13,7 +13,7 @@ IMG_SIZE = 224
 MAX_SEQ_LENGTH = 20
 NUM_FEATURES = 2048
 MODEL_PATH = 'models/final_model6.h5'
-MODEL_URL = 'https://drive.google.com/uc?id=<YOUR_GOOGLE_DRIVE_FILE_ID>'  # Added model URL; replace with your file ID
+MODEL_URL = 'https://drive.google.com/uc?id=<1Ep5f-w_viKroovioBpZSE2paZccBlFaf>'  # Added model URL; replace with your file ID
 
 # Initialize Flask app
 app = Flask(__name__)
